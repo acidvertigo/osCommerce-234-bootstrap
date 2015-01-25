@@ -48,7 +48,7 @@
   for ($i=0, $n=sizeof($order_totals); $i<$n; $i++) { ?>
     <tr><td colspan="2" align="right"><?php echo strip_tags($order_totals[$i]['title']); ?></td><td align="right"><?php echo strip_tags($order_totals[$i]['text']); ?></td></tr>
 <?php
-  } 
+  }
 ?>
 </tfoot>
 </table>
@@ -60,34 +60,34 @@
 <?php
   if ($order->content_type != 'virtual') {
 ?>
-  <h2><?php echo EMAIL_TEXT_DELIVERY_ADDRESS; ?></h2> 
+  <h2><?php echo EMAIL_TEXT_DELIVERY_ADDRESS; ?></h2>
   <hr>
-<?php 
+<?php
     echo tep_address_label($customer_id, $sendto, 0, '', "<br />");
   }
 ?>
   <h2><?php echo EMAIL_TEXT_BILLING_ADDRESS; ?></h2>
   <hr>
-<?php 
-    echo tep_address_label($customer_id, $billto, 0, '', "<br />"); 
+<?php
+    echo tep_address_label($customer_id, $billto, 0, '', "<br />");
 ?>
 </div>
 
-<?php 
+<?php
   if (is_object($$payment)) {
     $payment_class = $$payment;
 ?>
 <div class="paymentfooter">
-  <h2><?php echo EMAIL_TEXT_PAYMENT_METHOD; ?></h2> 
+  <h2><?php echo EMAIL_TEXT_PAYMENT_METHOD; ?></h2>
   <hr>
-<?php 
+<?php
     echo $order->info['payment_method'] . '<br />';
     if (isset($payment_class->email_footer)) {
       echo $payment_class->email_footer . '<br />';
     }
 ?>
 </div>
-<?php    
+<?php
   }
 ?>
 
