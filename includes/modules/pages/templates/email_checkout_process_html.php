@@ -35,9 +35,9 @@
     if (isset($columns1[1])) {
       $columns2 = explode(" = ", $columns1[1]);
     }
-    if (isset($products[$key+1]) && preg_match("/\t/", $products[$key+1])) {
+    if (isset($products[$key+1]) && (strpos($products[$key+1], '\t') !== false){
       echo '<tr><td align="center">' . $columns1[0] . '&nbsp;x&nbsp;</td><td>' . $columns2[0] . '<br /> - ' . $products[$key+1] . '</td><td align="right">' . $columns2[1] . '</td></tr>' . "\n";
-    } elseif (!preg_match("/\t/", $value) && !empty($value)) {
+    } elseif ((strpos($value, '\t') === false) && !empty($value)) {
       echo '<tr><td align="center">' . $columns1[0] . '&nbsp;x&nbsp;</td><td>' . $columns2[0] . '</td><td align="right">' . $columns2[1] . '</td></tr>' . "\n";
     }
   }
